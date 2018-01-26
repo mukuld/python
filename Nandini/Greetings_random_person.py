@@ -1,0 +1,5 @@
+# Print : input( "What is your name")
+# Print : (" Hello, how are you input "What is your name")
+name = raw_input("What is your name: ")
+print ("Hello, how are you Nandini")
+print ("I am doing fine")
