@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Python Programming for the Absolute Beginner - Source</title>
+    <style type="text/css">
+<!--
+	.nav
+	{	color: #ffffff;
+		text-decoration : none;
+	}
+-->
+    </style>
+<script language="JavaScript" type="text/javascript">
+<!--
+// global variables
+var i = false;
+var range;
+var styleOgj;
+
+if (document.all&&document.all.tags("style")) // set global variables if IE
+	{	i = true;
+		range = "all."
+		styleObj = ".style";
+	}
+
+function shader(num,bool,b2) // shading function
+	{	if (i&!b2)
+			{	if (!bool)
+					{	for (loop=1;loop<5;loop++)
+							{	thisTab = eval("document." + range + "tab" + num + "_" + loop + styleObj);								
+								thisTab.backgroundColor = "#0070AE";
+							}
+						midTab = eval("document." + range + "tab" + num + "_5" + styleObj);
+						midTab.backgroundColor = "#EB8413";
+					}
+				else
+					{	for (loop=1;loop<5;loop++)
+							{	thisTab = eval("document." + range + "tab" + num + "_" + loop + styleObj);	
+								thisTab.backgroundColor = "#EB8413";
+							}
+						midTab = eval("document." + range + "tab" + num + "_5" + styleObj);
+						midTab.backgroundColor = "#0070AE";
+					}
+			}
+	}
+//-->
+    </script>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#EB5B07" vlink="#EB8413" alink="#EB5B07" leftmargin="0" topmargin="0" bottommargin="0" rightmargin="0" marginheight="0" marginwidth="0">
+<basefont size="3" face="Verdana,Geneva,Arial,Helvetica,sans-serif" color="#000000">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+
+    <td width="50" valign="bottom" background="images/left.gif"><a href="http://www.premierpressbooks.com"><img src="images/logo.gif" width="50" height="85" border="0" alt="Premier Press"></a></td>
+		<td width="10"><img src="images/spacer.gif" width="10" height="1" border="0" alt=""></td>
+		<td width="239" valign="top" background="images/animation.gif">
+			<table width="239" border="0" cellspacing="0" cellpadding="0" background="">
+				<tr>
+					<td width="239" valign="top"><a href="home.html"><img src="images/name.gif" width="240" height="81" border="0" alt="WSH and VBScript Programming"></a></td>
+				</tr>
+				<tr>
+					<td width="239" valign="top" background="">
+						<br>
+
+<!-- Buttons Begin -->
+
+			<!-- Source Code Button Begin -->
+						<table width="139" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td colspan="3" bgcolor="#EB8413" background="" id="tab1_1"><img src="images/spacer.gif" width="139" height="2" border="0" alt=""></td>
+							</tr>
+							<tr>
+								<td bgcolor="#EB8413" id="tab1_2" background=""><img src="images/spacer.gif" width="2" height="20" border="0" alt=""></td>
+								<td width="100%" align="center" bgcolor="#0070AE" id="tab1_5"><img src="images/spacer.gif" width="135" height="1" border="0" alt=""><br>
+                                  <font face="Verdana,Geneva,Arial,Helvetica,sans-serif" size="-1" color="#ffffff">&nbsp;<b><a href="source.html" class="nav" onmouseover="shader(1,false);" onmouseout="shader(1,true);">
+                                  Source Code</a></b>&nbsp;&nbsp;</font></td>
+								<td bgcolor="#EB8413" id="tab1_3" background=""><img src="images/spacer.gif" width="2" height="20" border="0" alt=""></td>
+							</tr>
+							<tr>
+								<td bgcolor="#EB8413" colspan="3" id="tab1_4" background=""><img src="images/spacer.gif" width="1" height="2" border="0" alt=""></td>
+							</tr>
+						</table><br>
+						<img src="images/spacer.gif" width="10" height="1" border="0" alt="" align="left">
+			<!-- Sourc	e Code Button End -->
+
+
+			<!-- Useful Links Button Begin -->
+						<table width="139" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td bgcolor="#EB8413" colspan="3" id="tab2_1" background=""><img src="images/spacer.gif" width="139" height="2" border="0" alt=""></td>
+							</tr>
+							<tr>
+								<td bgcolor="#EB8413" id="tab2_2" background=""><img src="images/spacer.gif" width="2" height="20" border="0" alt=""></td>
+								<td width="100%" align="center" bgcolor="#0070AE" background="" id="tab2_5"><img src="images/spacer.gif" width="135" height="1" border="0" alt=""><br>
+                  <font face="Verdana,Geneva,Arial,Helvetica,sans-serif" size="-1" color="#EB5B07">&nbsp;&nbsp;<b><a href="links.html" class="nav" onmouseover="shader(2,false);" onmouseout="shader(2,true);"><font color="#FFFFFF">Useful
+                  Links </font></a></b>&nbsp;&nbsp;</font></td>
+								<td  bgcolor="#EB8413" id="tab2_3" background=""><img src="images/spacer.gif" width="2" height="20" border="0" alt=""></td>
+							</tr>
+							<tr>
+								<td  bgcolor="#EB8413" colspan="3" id="tab2_4" background=""><img src="images/spacer.gif" width="1" height="2" border="0" alt=""></td>
+							</tr>
+						</table>
+						<br>
+						<img src="images/spacer.gif" width="10" height="1" border="0" alt="" align="left"><img src="images/spacer.gif" width="10" height="1" border="0" alt="" align="left">
+			<!-- Useful Links Button End -->
+
+			<!-- Software Button Begin -->
+			<table width="139" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td bgcolor="#EB8413" colspan="3" id="tab3_1" background=""><img src="images/spacer.gif" width="139" height="2" border="0" alt=""></td>
+							</tr>
+							<tr>
+								<td bgcolor="#EB8413" id="tab3_2" background=""><img src="images/spacer.gif" width="2" height="20" border="0" alt=""></td>
+								<td width="100%" align="center" bgcolor="#0070AE" background="" id="tab3_5"><img src="images/spacer.gif" width="135" height="1" border="0" alt=""><br>
+                  <font face="Verdana,Geneva,Arial,Helvetica,sans-serif" size="-1" color="#EB5B07">&nbsp;&nbsp;<b><a href="software.html" class="nav" onmouseover="shader(3,false);" onmouseout="shader(3,true);"><font color="#FFFFFF">Software
+                  </font></a></b>&nbsp;&nbsp;</font></td>
+								<td  bgcolor="#EB8413" id="tab3_3" background=""><img src="images/spacer.gif" width="2" height="20" border="0" alt=""></td>
+							</tr>
+							<tr>
+								<td  bgcolor="#EB8413" colspan="3" id="tab3_4" background=""><img src="images/spacer.gif" width="1" height="2" border="0" alt=""></td>
+							</tr>
+						</table>
+						<br>
+						<img src="images/spacer.gif" width="10" height="1" border="0" alt="" align="left"><img src="images/spacer.gif" width="10" height="1" border="0" alt="" align="left"><img src="images/spacer.gif" width="10" height="1" border="0" alt="" align="left">
+			<!-- Software Button Ends -->
+
+<!-- Buttons End -->
+
+			<table width="139" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+              </table>
+						<td>
+				</tr>
+			</table>
+		</td>
+    <td width="100%" align="right" valign="top"> 
+      <div align="left"><img src="images/absbegin.gif" width="214" height="83" border="0" alt="for the Absolute Beginner" hspace="20"> 
+      </div>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+				<tr>
+					<td width="100%" valign="top">
+                    <font face="Verdana,Geneva,Arial,Helvetica,sans-serif" color="#0070AE"><b>Source
+                    Code &amp; Examples</b></font>
+					<hr width="100%" size="1" color="#0070AE" noshade>
+                    <p><font face="Verdana,Geneva,Arial,Helvetica,sans-serif" size="-1">The
+                    author has included all of the source code that is used in
+                    this book's work sessions, organized by chapter. When you
+                    click on a chapter's link, the archive containing all the
+                    files will open in the program you have associated with .ZIP
+                    files. If you do not currently have an archive program, you
+                    can download WinZip here (requires connection to the 
+                    Internet): <a href="http://www.winzip.com/" target="_blank">WinZip</a></font></p>
+            <font face="Verdana,Geneva,Arial,Helvetica,sans-serif" size="-1"> 
+            <hr width="100%" size="1" color="#0070AE" noshade>
+            <p>&nbsp;</p>
+            <p><b><a target="_blank" href="../source/all.zip">Install All Chapter
+            Examples and Resource Files</a> </b>(When the archive opens, extract 
+            the contents to a directory of your choice on your hard drive, such 
+            as <b>C:\pythonbook</b>.)</p>
+            <p><b>Chapter 1</b></p>
+            <ul>
+              <li><a target="_blank" href="../source/chapter01.zip">Chapter 1&nbsp;Zip File</a></li>
+            </ul>
+            <p><b>Chapter 2</b></p>
+            <ul>
+              <li><a target="_blank" href="../source/chapter02.zip">Chapter 2 Zip File</a></li>
+            </ul>
+            <p><b>Chapter 3</b></p>
+            <ul>
+              <li><a target="_blank" href="../source/chapter03.zip">Chapter 3 Zip File</a></li>
+           </ul>
+            <p><b>Chapter 4</b></p>
+            <ul>
+              <li><a target="_blank" href="../source/chapter04.zip">Chapter 4 Zip File</a></li>
+            </ul>
+            <p><b>Chapter 5</b></p>
+            <ul>
+              <li><a target="_blank" href="../source/chapter05.zip">Chapter 5 Zip File</a></li>
+            </ul>
+            <p><b>Chapter 6</b></p>
+            <ul>
+              <li><a target="_blank" href="../source/chapter06.zip">Chapter 6 Zip File</a></li>
+            </ul>
+            <p><b>Chapter 7</b></p>
+            <ul>
+              <li><a target="_blank" href="../source/chapter07.zip">Chapter 7 Zip File</a></li>
+            </ul>
+            <p><b>Chapter 8</b></p>
+            <ul>
+              <li><a target="_blank" href="../source/chapter08.zip">Chapter 8 Zip File</a></li>
+            </ul>
+            <p><b>Chapter 9</b></p>
+            <ul>
+              <li><a target="_blank" href="../source/chapter09.zip">Chapter 9 Zip File</a></li>
+            </ul>
+            <p><b>Chapter 10</b></p>
+            <ul>
+              <li><a target="_blank" href="../source/chapter10.zip">Chapter 10 Zip File</a></li>
+            </ul>
+            <p><b>Chapter 11</b></p>
+            <ul>
+              <li><a target="_blank" href="../source/chapter11.zip">Chapter 11 Zip File</a></li>
+            </ul>
+            <p><b>Chapter 12</b></p>
+            <ul>
+              <li><a target="_blank" href="../source/chapter12.zip">Chapter 12 Zip File</a></li>
+            </ul>
+            <p>&nbsp;
+                    </font></td>
+					<td width="10"><img src="images/spacer.gif" width="10" height="450" border="0" alt=""></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+
+
+</body>
+</html>
