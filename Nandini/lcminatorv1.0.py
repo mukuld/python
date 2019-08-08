@@ -1,7 +1,12 @@
+def set_number_quantity():
+    quantity = int(input("How many numbers do you want to find LCM for: "))
+    return quantity
+
 def ask_numbers():
-        num1 = int(input("Please enter a number: "))
-        num2 = int(input("Please enter another number: "))
-        return num1, num2
+    quantity = set_number_quantity()
+    for i in range(quantity):
+        num[i + 1] = int(input("Please enter a number: "))
+        return num[i + 1]
 
 #Find multiples of the number
 def find_lcm(n1, n2):
@@ -16,8 +21,7 @@ def find_lcm(n1, n2):
                 fc2 = set(factors2)
                 LCM = (fc1 & fc2)
                 if (LCM):
-                        print("The LCM of ", n1, "and ", n
-                        2, "is ", LCM)
+                        print("The LCM of ", n1, "and ", n2, "is ", LCM)
 def main():
         num1, num2 = ask_numbers()
         find_lcm(num1, num2)
