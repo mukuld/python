@@ -16,7 +16,8 @@ def find_lcm(n1, n2):
                 fc2 = set(factors2)
                 LCM = (fc1 & fc2)
                 if (LCM):
-                        print("The LCM of ", n1, "and ", n2, "is ", LCM)
+                        print("The LCM of ", n1, "and ", n
+                        2, "is ", LCM)
 def main():
         num1, num2 = ask_numbers()
         find_lcm(num1, num2)
