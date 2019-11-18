@@ -28,7 +28,7 @@ def instructions():
 def get_name():
 	"""Get player's name"""
 	
-	print \
+	print 
 	"""First of all, let's get to know each other a little better.
 	My name is Compy...
 	What's yours?
