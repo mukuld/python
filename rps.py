@@ -7,40 +7,38 @@ import random
 def instructions():
 	"""Displays the game instructions"""
 	
-	print \
-	"""
-	Today we will play the perennial favorite game of...
-	Rock! Paper!! Scissors!!!.
-	The objective of the game is to outthink your opponent (in this case me) and defeat.
-	The rules are very simple
-	1. Paper covers the Rock
-	2. Rock breaks the Scissors
-	3. Scissors cut the Paper
+	print('''\n
+	Today we will play the perennial favorite game of...\n
+	Rock! Paper!! Scissors!!!.\n
+	The objective of the game is to outthink your opponent (in this case me) and defeat.\n
+	The rules are very simple\n
+	1. Paper covers the Rock\n
+	2. Rock breaks the Scissors\n
+	3. Scissors cut the Paper\n\n
 	
-	Choose your move from the following:
-	1. Paper (p)
-	2. Rock (r)
-	3. Scissors (s)
+	Choose your move from the following:\n
+	1. Paper (p)\n
+	2. Rock (r)\n
+	3. Scissors (s)\n\n
 	
-	Are you ready? Alright then, let's play...
-	"""
+	Are you ready? Alright then, let\'s play...\n''')
 
 def get_name():
 	"""Get player's name"""
 	
-	print 
+	print(
 	"""First of all, let's get to know each other a little better.
 	My name is Compy...
 	What's yours?
-	"""
-	player_name = raw_input("What is your name: ")
+	""")
+	player_name = input("What is your name: ")
 	#print player_name
 	return player_name
 	
 def greet_player(name):
 	"""Let's be polite and greet each other properly"""
 	
-	print "How are are you doing %s?" % name
+	print("How are are you doing, ", name)
 
 def legal_moves():
 	"""Define the legal moves"""
@@ -51,25 +49,25 @@ def player_move():
 	"""Players choose their move"""
 	move = None
 	while move not in moves:
-		move = raw_input("What is your move %s? --> " % name)
+		move = input("What is your move %s? --> " % name)
 	return move
 	
 def computer_move():
 	"""The computer will choose its move in this function"""
 	move = random.choice(moves)
-	print "Computer's move is %s" % move
+	print("Computer's move is",  move)
 	return move
 
 def compare_moves(p_move, c_move):
 	"""We will now compare the moves the human and computer make and then take the output
 	to declare the winner"""
 #	tie = "It's a tie"
-   	if p_move == "r" and c_move == "p":
-   		return "computer"
+	if p_move == "r" and c_move == "p":
+		return "computer"
 	elif p_move == "r" and c_move == "s":
-   		return "human"
+		return "human"
 	elif p_move == "p" and c_move == "s":
-   		return "computer"
+		return "computer"
 	elif p_move == "p" and c_move == "r":
 		return "human"
 	elif p_move == "s" and c_move == "r":
@@ -79,11 +77,11 @@ def compare_moves(p_move, c_move):
 			
 def declare_winner(winner):
 	if winner == "human":
-		print "%s wins. Congratulations and well played!!!" % name
+		print(name, "wins. Congratulations and well played!!!")
 	elif winner == "computer":
-		print "Computer wins. Better luck next time %s." % name
+		print("Computer wins. Better luck next time", name, ".")
 	else:
-		print "It's a tie"
+		print("It's a tie")
 
 
 #main body of the program
