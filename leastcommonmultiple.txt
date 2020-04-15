@@ -1,0 +1,9 @@
+Algorithm to find LCM
+
+Enter two numbers
+	Check if the numbers are same
+	if not proceed
+List multiples of the numbers
+	check at each level
+	if multiples are same, then stop and return the value
+Print the value as least common multiple
