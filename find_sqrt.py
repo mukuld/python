@@ -1,33 +1,29 @@
-#Program to determine square root of any given number
+# Program to determine square root of any given number
 # Programmer: Mukul Dharwadkar
 # Date: Apr 15 2020
+# Python version 3
 
 def get_number():
     response = None
     while response is None:
-        response = int(input("Please choose a number to find a square root of: "))
-    #print(response)
+        response = float(input("Please choose a number to find a square root of: "))
     return response
 
 def create_guess(inp):
     guess = inp / 2
-    print(guess)
     return guess
 
 def check_square(num, orig_num):
     square = num * num
-    if square == orig_num:
-        print(f"Square Root of {orig_num} is {num}")
-    else:
-        print("Try again")
+    while square - orig_num > 0.00000001 or square - orig_num < 0:
+        num = find_new_guess(num, orig_num)
+        square = num * num
+    print(f"The square root of {orig_num} is {num:.2f}")
 
-## Start here. Work to find a new guess by implementing the logic
-## new_guess = (old_guess + (number / old_guess))/2
-## And check the square again of the new_guess
-## Adding a comment
-def find_new_guess():
+def find_new_guess(old_guess, orig_num):
+    new_guess = (old_guess + (number / old_guess))/2
+    return new_guess
 
 
 number = get_number()
-#create_guess(get_number())
 check_square(create_guess(number), number)
