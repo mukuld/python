@@ -15,7 +15,7 @@ def create_guess(inp):
 
 def check_square(num, orig_num):
     square = num * num
-    while square - orig_num > 0.00000001 or square - orig_num < 0:
+    while square - orig_num > 0.001 or square - orig_num < 0:
         num = find_new_guess(num, orig_num)
         square = num * num
     print(f"The square root of {orig_num} is {num:.2f}")
@@ -23,7 +23,6 @@ def check_square(num, orig_num):
 def find_new_guess(old_guess, orig_num):
     new_guess = (old_guess + (number / old_guess))/2
     return new_guess
-
 
 number = get_number()
 check_square(create_guess(number), number)
