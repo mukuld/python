@@ -28,23 +28,9 @@ for i in range(len(lines1) - 1): # Not using the modern "FOR" loop here as it gi
         for item in list:
             a_list.append(item)
  
-#print(a_list)
-#print(f"Total length of file is: {len(lines1)}")
-#for i in range(len(lines1)):
 for i in range(len(lines1)+len(a_list) - 1):
-#    print(i)
-#    print(lines1[i])
-#    print("\n\n\n\n\n\n\n\n\n\n\n")
-#    if i == len(lines1) + 1:
-#        break
     if lines1[i][0] != lines1[i+1][0]:
-        #print(lines1[i])
         lines1.insert(i + 1, a_list[0] + "\n")
         a_list.pop(0)
-        #print(org_lines[i][0])
-        #print(org_lines[i+1][0])
-        #i += 1
-#print(i)
-#print(a_list)
-#print(lines1)
+
 open_to_write(fl, lines1)
