@@ -1,0 +1,7 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Allow-Control-Allow-Origin": "*"
+    },
+    "body": "Nandini Dharwadkar"
+}
