@@ -17,7 +17,7 @@ def get_number():
 def convert(num):
     letters = get_keys(hex_letters)
     hex_num = 0
-    count = 0
+    #count = 0
     for n in num:
         rev_num = num[::-1]
         if n in letters:
