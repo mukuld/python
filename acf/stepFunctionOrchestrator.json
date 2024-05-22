@@ -1,56 +1,86 @@
 {
-    "Comment": "Automated AMI Backup Workflow",
-    "StartAt": "CreateAMI",
-    "States": {
-      "CreateAMI": {
-        "Type": "Task",
-        "Resource": "arn:aws:lambda:us-east-1:359456636334:function:createAMI:$LATEST",
-        "Next": "WaitForImageAvailable",
-        "Catch": [
-          {
-            "ErrorEquals": [
-              "States.ALL"
-            ],
-            "Next": "ErrorHandlingState"
-          }
-        ]
+  "Comment": "Automated AMI Backup Workflow",
+  "StartAt": "CreateAMI",
+  "States": {
+    "CreateAMI": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:REGION:ACCOUNT_ID:function:createAMI:$LATEST",
+      "Next": "WaitForImageAvailable",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "Next": "NotifyFailure"
+        }
+      ]
+    },
+    "WaitForImageAvailable": {
+      "Type": "Wait",
+      "Seconds": 600,
+      "Next": "ShareAMI"
+    },
+    "ShareAMI": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:REGION:ACCOUNT_ID:function:shareAMI",
+      "InputPath": "$.image_id",
+      "Next": "RetainBackups",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "Next": "NotifyFailure"
+        }
+      ]
+    },
+    "RetainBackups": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:REGION:ACCOUNT_ID:function:retainLastFiveImages",
+      "Next": "NotifySuccess",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "Next": "NotifyFailure"
+        }
+      ]
+    },
+    "NotifySuccess": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:REGION:ACCOUNT_ID:activity:SendSuccessNotification",
+      "Parameters": {
+        "TopicArn": "arn:aws:sns:REGION:ACCOUNT_ID:SendNotifications",
+        "Message": "Step Function execution succeeded. AMI created and shared successfully.",
+        "Subject": "Step Function Execution Success"
       },
-      "WaitForImageAvailable": {
-        "Type": "Wait",
-        "Seconds": 600,
-        "Next": "ShareAMI"
+      "End": true
+    },
+    "NotifyFailure": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:REGION:ACCOUNT_ID:activity:SendFailureNotification",
+      "Parameters": {
+        "TopicArn": "arn:aws:sns:REGION:ACCOUNT_ID:SendNotifications",
+        "Message": {
+          "Fn::Join": [
+            "",
+            [
+              "Step Function execution failed with error: ",
+              {
+                "Fn::GetAtt": ["$.Error", "Message"]
+              }
+            ]
+          ]
+        },
+        "Subject": "AMI Creation and Sharing Step Function Execution Failure"
       },
-      "ShareAMI": {
-        "Type": "Task",
-        "Resource": "arn:aws:lambda:us-east-1:359456636334:function:shareAMI",
-        "InputPath": "$.image_id",
-        "Next": "RetainBackups",
-        "Catch": [
-          {
-            "ErrorEquals": [
-              "States.ALL"
-            ],
-            "Next": "ErrorHandlingState"
-          }
-        ]
-      },
-      "RetainBackups": {
-        "Type": "Task",
-        "Resource": "arn:aws:lambda:us-east-1:359456636334:function:retainLastFiveImages",
-        "End": true,
-        "Catch": [
-          {
-            "ErrorEquals": [
-              "States.ALL"
-            ],
-            "Next": "ErrorHandlingState"
-          }
-        ]
-      },
-      "ErrorHandlingState": {
-        "Type": "Fail",
-        "Cause": "An error occurred in the state machine",
-        "Error": "ErrorName"
-      }
+      "Next": "ErrorHandlingState"
+    },
+    "ErrorHandlingState": {
+      "Type": "Fail",
+      "Cause": "An error occurred in the state machine",
+      "Error": "ErrorName"
     }
   }
+}
