@@ -49,7 +49,7 @@
     },
     "NotifySuccess": {
       "Type": "Task",
-      "Resource": "arn:aws:states:REGION:ACCOUNT_ID:activity:SendSuccessNotification",
+      "Resource": "arn:aws:states:::sns:publish",
       "Parameters": {
         "TopicArn": "arn:aws:sns:REGION:ACCOUNT_ID:SendNotifications",
         "Message": "Step Function execution succeeded. AMI created and shared successfully.",
@@ -59,7 +59,7 @@
     },
     "NotifyFailure": {
       "Type": "Task",
-      "Resource": "arn:aws:states:REGION:ACCOUNT_ID:activity:SendFailureNotification",
+      "Resource": "arn:aws:states:::sns:publish",
       "Parameters": {
         "TopicArn": "arn:aws:sns:REGION:ACCOUNT_ID:SendNotifications",
         "Message": {
@@ -84,3 +84,4 @@
     }
   }
 }
+
