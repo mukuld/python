@@ -1,3 +1,9 @@
+######################################
+# Function: Share AMI                #
+# Developed by: MUkul Dharwadkar     #
+# License: MIT                       #
+######################################
+
 import boto3
 import os
 
