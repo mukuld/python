@@ -1,0 +1,86 @@
+{
+  "Comment": "A description of my state machine",
+  "StartAt": "CreateAMI",
+  "States": {
+    "CreateAMI": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:REGION:AWS_ACCOUNT_ID:function:CreateAMIFunction",
+      "Next": "WaitForAMIAvailable",
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "Next": "NotifyFailure"
+        }
+      ]
+    },
+    "WaitForAMIAvailable": {
+      "Type": "Wait",
+      "Seconds": 300,
+      "Next": "ParallelExecution"
+    },
+    "ParallelExecution": {
+      "Type": "Parallel",
+      "Branches": [
+        {
+          "StartAt": "ShareAMI",
+          "States": {
+            "ShareAMI": {
+              "Type": "Task",
+              "Resource": "arn:aws:lambda:REGION:AWS_ACCOUNT_ID:function:ShareAMIFunction",
+              "End": true,
+              "Catch": [
+                {
+                  "ErrorEquals": ["States.ALL"],
+                  "Next": "NotifyFailure"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "StartAt": "UpdateLaunchTemplate",
+          "States": {
+            "UpdateLaunchTemplate": {
+              "Type": "Task",
+              "Resource": "arn:aws:lambda:REGION:AWS_ACCOUNT_ID:function:UpdateLaunchTemplateFunction",
+              "End": true,
+              "Catch": [
+                {
+                  "ErrorEquals": ["States.ALL"],
+                  "Next": "NotifyFailure"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "Next": "NotifySuccess",
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "Next": "NotifyFailure"
+        }
+      ]
+    },
+    "NotifySuccess": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "TopicArn": "arn:aws:sns:REGION:AWS_ACCOUNT_ID:StepFunctionNotifications",
+        "Message": "Step Function execution succeeded. AMI creation, sharing, and launch template update completed successfully.",
+        "Subject": "Step Function Execution Success"
+      },
+      "End": true
+    },
+    "NotifyFailure": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "TopicArn": "arn:aws:sns:REGION:AWS_ACCOUNT_ID:StepFunctionNotifications",
+        "Message.$": "States.Format('Step Function execution failed with error: {}', $.Error)",
+        "Subject": "Step Function Execution Failure"
+      },
+      "End": true
+    }
+  }
+}
